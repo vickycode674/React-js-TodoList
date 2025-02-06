@@ -3,10 +3,13 @@ import Footer from './Footer';
 import Header from './Header';
 import { useState } from 'react';
 import AddItem from './AddItem';
+import SearchItem from './SearchItem';
 function App() {
  const [tasks,taskList] = useState(JSON.parse(localStorage.getItem('todo_list')));
 
     const [newItem,setNewItem] = useState('');
+    
+    const [search,setSearch] = useState('');
 
     const addItem = (item) =>{
       const id = tasks.length ? tasks[tasks.length-1].id + 1 : 1;
@@ -45,8 +48,12 @@ function App() {
     setNewItem={setNewItem}
     handleNewList={handleNewList}
     />
+    <SearchItem
+    search = {search}
+    setSearch = {setSearch}
+    />
     <Content 
-       tasks={tasks}
+       tasks={tasks.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()))}
        taskList={taskList}
        handleTasksChange={handleTasksChange}
        deleteTask={deleteTask}
