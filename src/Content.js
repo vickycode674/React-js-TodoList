@@ -24,7 +24,7 @@ const Content = ({tasks,setTasks,handleTasksChange,deleteTask}) => {
     //     setCount((count)=>{return count-1}) 
     // }
   return (
-    <main>
+    <>
      {/* <p>Welcome to the world of react hooks and learn by {name}</p>
      <button onClick={handleNameChanges}>Subscribe</button>
      <button onClick={decrementFucntion}>-</button>
@@ -41,7 +41,7 @@ const Content = ({tasks,setTasks,handleTasksChange,deleteTask}) => {
 ) : 
 (<p>The List is Empty </p>)   
 }
- </main>
+ </>
  )
 }
 export default Content
